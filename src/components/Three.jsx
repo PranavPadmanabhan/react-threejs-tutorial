@@ -10,14 +10,14 @@ const Three = () => {
   const planeRef = useRef();
 
   useFrame((state) => {
-    if(window.innerWidth>600){
+    if(window.innerWidth>540){
       if(planeRef.current){
         planeRef.current.rotation.y = -state.mouse.x * 4;
         planeRef.current.rotation.z = -state.mouse.y;
        }
     }
-     planeRef.current.rotation.x  += 0.01
-     planeRef.current.rotation.z  += 0.01
+     planeRef.current.rotation.y  += 0.01;
+     planeRef.current.rotation.z  += 0.02;
   })
 
 
