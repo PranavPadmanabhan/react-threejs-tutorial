@@ -9,15 +9,18 @@ const Three = () => {
   const cameraControlRef = useRef()
   const planeRef = useRef();
 
-  useFrame((state) => {
+  let oldElapsedTime = 0;
+  useFrame(({mouse,clock}) => {
     if(window.innerWidth>540){
       if(planeRef.current){
-        planeRef.current.rotation.y = -state.mouse.x * 4;
-        planeRef.current.rotation.z = -state.mouse.y;
+        planeRef.current.rotation.y = -mouse.x * 4;
+        planeRef.current.rotation.z = -mouse.y;
        }
     }
-     planeRef.current.rotation.y  += 0.01;
-     planeRef.current.rotation.z  += 0.02;
+     const elapsedTime = clock.getElapsedTime();
+     planeRef.current.rotation.y = elapsedTime;
+     planeRef.current.rotation.z = elapsedTime;
+     
   })
 
 
