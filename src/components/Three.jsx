@@ -16,9 +16,9 @@ const Three = () => {
         planeRef.current.rotation.z = -state.mouse.y;
        }
     }
+     planeRef.current.rotation.x  += 0.01
+     planeRef.current.rotation.z  += 0.01
   })
-
-
 
 
   return (
